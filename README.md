@@ -1,12 +1,19 @@
 # Template for starknet.dart workshop
 
+## Dependencies
+### Version management:
+Scarb version is managed with [asdf](https://asdf-vm.com/guide/getting-started.html)
+Python is managed with [pyenv](https://github.com/pyenv/pyenv)
 
-
-## directories
+## Directories
 
 ### app
 
 Contains `pubspec_overrides.yaml` to force `starknet` and `starknet_builder` coming from github.
+
+### contracts
+
+Contains source code for Cairo contract
 
 ### devnet
 
