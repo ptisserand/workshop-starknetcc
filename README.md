@@ -1,6 +1,11 @@
 # Template for starknet.dart workshop
 
 ## Dependencies
+
+- scarb
+- poetry
+- starkli
+  
 ### Version management:
 Scarb version is managed with [asdf](https://asdf-vm.com/guide/getting-started.html)
 Python is managed with [pyenv](https://github.com/pyenv/pyenv)
