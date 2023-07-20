@@ -4,27 +4,20 @@ final account = account0;
 final provider = account0.provider;
 
 Future<int> getCounter(String contractAddress) async {
-  final result = await provider.call(
-    request: FunctionCall(
-        contractAddress: Felt.fromHexString(contractAddress),
-        entryPointSelector: getSelectorByName("get_counter"),
-        calldata: []),
-    blockId: BlockId.latest,
+  final contract = Contract(
+    account: account0,
+    address: Felt.fromHexString(contractAddress),
   );
-  return result.when(
-    result: (result) => result[0].toInt(),
-    error: (error) => throw Exception("Failed to get counter value"),
-  );
+  final result = await contract.call("get_counter", []);
+  return result[0].toInt();
 }
 
 Future<bool> increaseCounter(String contractAddress) async {
-  final response = await account.execute(functionCalls: [
-    FunctionCall(
-      contractAddress: Felt.fromHexString(contractAddress),
-      entryPointSelector: getSelectorByName("tick"),
-      calldata: [],
-    ),
-  ]);
+  final contract = Contract(
+    account: account0,
+    address: Felt.fromHexString(contractAddress),
+  );
+  final response = await contract.execute("tick", []);
 
   final txHash = response.when(
     result: (result) => result.transaction_hash,
