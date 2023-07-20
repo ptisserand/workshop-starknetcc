@@ -23,16 +23,21 @@ Contains source code for Cairo contract
 ### devnet
 
 Contains setup to run a local devnet.
-Due to an issue in python packaging, you have to run the following commands to fix permission issues:
-
-```
-$ chmod 755 /home/robin/.cache/pypoetry/virtualenvs/scripts-oQrIUXm6-py3.9/lib/python3.9/site-packages/starkware/starknet/compiler/v1/bin/starknet-*
-```
 
 To start devnet:
 ```
-$ make
+$ make devnet
 ```
+
+If you have an issue when declaring a contract, it could be related to permission of starknet compiler in cairo-lang package.
+
+You can run the following command to fix it:
+```
+make fixup
+```
+
+The path to directory containing starknet compilers when using poetry should be:
+`${HOME}/.cache/pypoetry/virtualenvs/${env_name}/lib/${python_version}/site-packages/starkware/starknet/compiler/v1/bin`
 
 ### tool
 
