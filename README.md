@@ -2,9 +2,9 @@
 
 ## Dependencies
 
-- scarb
-- poetry
-- starkli
+- [scarb](https://docs.swmansion.com/scarb)
+- [starkli](https://book.starkli.rs/)
+- [poetry](https://python-poetry.org/)
   
 ### Version management:
 Scarb version is managed with [asdf](https://asdf-vm.com/guide/getting-started.html)
