@@ -1,8 +1,8 @@
 .PHONY: build clean setup
 
 ####
-CONTRACT_SOURCE=
-CONTRACT_NAME=
+CONTRACT_SOURCE=lib.cairo
+CONTRACT_NAME=contracts_Counter
 ####
 
 current_dir=$(shell pwd)
@@ -15,11 +15,10 @@ SRC=$(SRC_DIR)/lib.cairo
 SIERRA=$(TGT_DIR)/$(CONTRACT_NAME).sierra.json
 CASM=$(TGT_DIR)/$(CONTRACT_NAME).casm.json
 
+build: $(CASM) $(SIERRA)
 
 $(CASM) $(SIERRA): $(SRC)
 	scarb build
-
-build: $(CASM) $(SIERRA)
 
 clean:
 	scarb clean
