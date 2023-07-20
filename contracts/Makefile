@@ -24,4 +24,4 @@ clean:
 	scarb clean
 
 setup:
-	dart $(TOP_DIR)/tool/bin/setup_contracts.dart --sierra $(SIERRA) --casm $(CASM)
+	dart $(TOP_DIR)/tool/bin/setup_contracts.dart --sierra $(SIERRA) --casm $(CASM) --output $(current_dir)/deployment.json

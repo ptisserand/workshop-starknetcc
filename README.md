@@ -1,4 +1,21 @@
-# Template for starknet.dart workshop
+# Starknet.dart
+
+## Start devnet with deployed contract
+
+Start devnet in a terminal
+```
+make devnet
+```
+
+Fix cairo-lang issue if any
+```
+make fixup
+```
+
+Build, declare and deploy contract on devnet
+```
+make setup
+```
 
 ## Dependencies
 
