@@ -1,40 +1,36 @@
 # Starknet.dart
 
-## Step 03: using source code generator
+## Step 04: starknet counter example
 
-- Add `starknet_builder` and `build_runner` to your application [`pubspec.yaml`](./app/pubspec.yaml) in `dev_dependencies`
-```yaml
-dev_dependencies:
-  lints: ^2.0.0
-  test: ^1.21.0
-  starknet_builder:
-  build_runner: ^2.1.11
-```
-- Create a `lib/src` directory in your app.
+- Remove your `app` directory
 ```shell
-mkdir app/lib/src
+rm -fr app
 ```
+- Create a flutter project named app
+```shell
+flutter create app
+```
+- Restore `app/pubspec_overrides.yaml`
+```shell
+git checkout app/pubspec_overrides.yaml
+```
+- Add `starknet` in `dependencies`
+- Add `starknet_builder` and `build_runner` in `dev_dependencies`
 - Extract JSON ABI from your sierra compiled contract to your app source code.
 ```shell
+mkdir ./app/lib/src
 dart run ./tool/bin/extract_sierra_json.dart --input ./contracts/target/dev/contracts_Counter.sierra.json --output ./app/lib/src/counter.sierra.json
 ```
-- Run build_runner in `app` directory:
-```shell
+- Generate wrapper class in `app` directory
+```
 dart run build_runner build
 ```
-- It will generate a file named `counter.sierra.g.dart` in `app/lib/src` directory:
+- Update counter example to use StarkNet! 🚀
 ```
-$ ls -1  app/lib/src/
-counter.sierra.g.dart
-counter.sierra.json
+flutter run -d linux --dart-define-from-file=../contracts/deployment.json 
 ```
-- Now you can import this file into your `app/lib/app.dart`, and then easily call the contract:
-```
-await contract.get_counter()
-```
-```
-final txHash = await contract.tick();
-```
+
+
 ## Start devnet with deployed contract
 
 Start devnet in a terminal
