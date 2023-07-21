@@ -25,13 +25,10 @@ make setup
   
 ### Version management:
 Scarb version is managed with [asdf](https://asdf-vm.com/guide/getting-started.html)
+
 Python is managed with [pyenv](https://github.com/pyenv/pyenv)
 
 ## Directories
-
-### app
-
-Contains `pubspec_overrides.yaml` to force `starknet` and `starknet_builder` coming from github.
 
 ### contracts
 
@@ -64,4 +61,17 @@ Usage:
 ```
 $ dart pub get
 $ dart run ./bin/extract_sierra_json.dart --input SIERRA.json --output ABI.json
+```
+
+Contains a dart script to declare and deploy a Cairo contract to devnet
+
+Usage:
+```
+Usage: dart ./tool/bin/setup_contracts.dart [--help] [--sierra value] [--casm value] [--output value] [--no-declare] [--no-deploy]
+-h, --help                  Show usage information
+    --sierra (mandatory)    Input path to sierra file
+    --casm (mandatory)      Input path to casm file
+    --output (mandatory)    Output path to JSON containing contract information
+    --no-declare            No declare
+    --no-deploy             No deploy
 ```
