@@ -19,7 +19,7 @@ make setup
 
 ## Dependencies
 
-- [scarb](https://docs.swmansion.com/scarb)
+- [scarb](https://docs.swmansion.com/scarb) **:warning: version 0.4.1 :warning:**
 - [starkli](https://book.starkli.rs/)
 - [poetry](https://python-poetry.org/)
   
